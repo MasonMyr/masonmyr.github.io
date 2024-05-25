@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+    --main-bg-color: #009a6c;
+    --main-text-color: #009a6c;
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+span {
+    color: var(--main-text-color);
+}
+
+body {
+    height: 100vh;
+}
+
+button{
+    transition: 1s all;
+}
+
+button:hover{
+    opacity: .5;
+}
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+}
+
+#krots {
+    display: grid;
+    height: 100%;
+    align-self: center;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(2, 1fr) !important;
+}
+
+img {
+    width: 200px;
+    pointer-events: none;
+}
+
+#app {
+    width: 80vw;
+    padding: 30px;
+}
+
+#game {
+    display: flex;
+    
+}
+
+.finished {
+    opacity: .9;
+}
+
+#start{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#sectionWithForms{
+    padding: 20px;
+    align-self: center;
+}
+
+
+
+.disabled {
+    cursor: not-allowed!important;
+}
+
+p {
+    padding: 10px;
+    text-align: center;
+}
+
+.description {
+    font-weight: 600;
+    font-size: 2rem;
+    height: auto;
+}
+
+h3 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 26px;
+}
+
+input[type="tel"],
+input[type="name"] {
+    border: 1px #0000004d solid;
+}
+
+input[type="submit"],
+#startBtn {
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--main-bg-color);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+#confid {
+    opacity: 0.5;
+}
+
+h4,
+#confid,
+label {
+    color: black;
+}
+
+label {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+h4,
+.prizeSpan {
+    font-size: 1.8rem;
+}
+
+h4{
+    text-align: center;
+}
+
+input[type="checkbox"]{
+    margin: 0!important;
+}
+
+.prizeSpan {
+    height: 100%;
+    color: var(--main-text-color);
+}
+
+.mobileDescription{
+    display: none;
+}
+
+.hidden{
+    display: none;
+}
+
+@media screen and (max-width: 1150px){
+    #krots {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(3, 1fr) !important;
+    }
+}
+
+@media screen and (max-width: 940px) {
+    h3 {
+        font-size: 36px;
+    }
+
+    #app{
+        width: 90vw;
+    }
+
+    img{
+        width: 180px;
+    }
+
+    .app .scope .list__item {
+        width: 150px;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    .description {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    form{
+        margin-top: 0px;
+    }
+    h4 {
+        font-size: 2rem;
+    }
+
+    .mobileDescription{
+        display: block!important;
+    }
+
+    .description{
+        display: none;
+    }
+
+    .finished {
+        display: none!important;
+    }
+
+    #game{
+        flex-direction: column;
+    }
+
+    #sectionWithForms {
+        margin: 0 auto!important;
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    h3 {
+        font-size: 32px;
+    }
+
+
+
+    #krots{
+        width: 100%;
+    }
+
+    h4 {
+        margin-bottom: 10px;
+    }
+
+    .app .scope .list__item {
+        width: 130px;
+    }
+
+    form {
+        padding: 16px;
+    }
+
+    p {
+        height: 60px;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h4 {
+        font-size: 1.5rem;
+    }
+
+    .prizeSpan {
+        font-size: 1.5rem;
+        margin-bottom: 0px;
+    }
+
+    .app .scope .list__item {
+        width: 100px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h4 {
+        font-size: 1.4rem;
+    }
+
+    img{
+        width: 150px;
+    }
+
+    .prizeSpan {
+        font-size: 1.2rem;
+        margin-bottom: 0px;
+    }
+
+    .app .scope .list__item {
+        width: 100px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+}

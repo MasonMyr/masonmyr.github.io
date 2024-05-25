@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кроты</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <script src="./assets/scripts/script.js" defer></script>
+</head>
+
+<body>
+    <section id="app">
+        <div class="appContent">
+            <div id="game">
+                <p class="description mobileDescription">
+                    <span> Победите 5 кротов </span>
+                    и получите
+                    <span> награду </span>
+                </p>
+                <ul id="krots">
+                    <li data-action="none">
+                        <img src="./assets/img/hole.svg" alt="" />
+                    </li>
+                    <li data-action="none">
+                        <img src="./assets/img/hole.svg" alt="" />
+                    </li>
+                    <li data-action="none">
+                        <img src="./assets/img/hole.svg" alt="" />
+                    </li>
+                    <li data-action="none">
+                        <img src="./assets/img/hole.svg" alt="" />
+                    </li>
+                    <li data-action="none">
+                        <img src="./assets/img/hole.svg" alt="" />
+                    </li>
+                    <li data-action="none">
+                        <img src="./assets/img/hole.svg" alt="" />
+                    </li>
+                </ul>
+                <section id="sectionWithForms">
+                    <div id="start">
+                        <p class="description">
+                            <span> Победите 5 кротов </span>
+                            и получите
+                            <span> награду </span>
+                        </p>
+                        <button type="button" onclick="start()" id="startBtn" style="margin-top: 1rem;">
+                            Начать игру
+                        </button>
+                    </div>
+
+                    <div class="result" >
+                        <form id="form" class="hidden">
+                            <div class="hideSm">
+                                <h4>Поздравляем! Вы выиграли:</h4>
+                                <p class="prizeSpan"></p>
+                            </div>
+                            <br />
+                            <p style="color: #A6A6A6;">Оставьте ваши данные, чтобы забрать подарок</p>
+                            <input type="name" placeholder="Имя" required id="name" name="parentName" />
+                            <br />
+                            <input type="tel" placeholder="+7 (999) 999 99 99" required id="tel" name="parentPhone" />
+                            <input type="submit" value="Забрать подарок" id="submitButton" />
+                            <p id="confid">
+                                <input type="checkbox" name="checkbox" id="checkbox" required />
+                                Я согласен с
+                                <a href="[ссылка на оферту]" style="text-decoration: none">Политикой
+                                    конфиденциальности и принимаю условия Публичной
+                                    оферты</a>
+                            </p>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var eventCalllback = function (e) {
+                var el = e.target,
+                    clearVal = el.dataset.phoneClear,
+                    pattern = el.dataset.phonePattern,
+                    matrix_def = "+7(___) ___-__-__",
+                    matrix = pattern ? pattern : matrix_def,
+                    i = 0,
+                    def = matrix.replace(/\D/g, ""),
+                    val = e.target.value.replace(/\D/g, "");
+                if (clearVal !== "false" && e.type === "blur") {
+                    if (val.length < matrix.match(/([\_\d])/g).length) {
+                        e.target.value = "";
+                        return;
+                    }
+                }
+                if (def.length >= val.length) val = def;
+                e.target.value = matrix.replace(/./g, function (a) {
+                    return /[_\d]/.test(a) && i < val.length ?
+                        val.charAt(i++) :
+                        i >= val.length ?
+                        "" :
+                        a;
+                });
+            };
+            var phone_inputs = document.querySelectorAll("#tel");
+            for (let elem of phone_inputs) {
+                for (let ev of ["input", "blur", "focus"]) {
+                    elem.addEventListener(ev, eventCalllback);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
